@@ -10,6 +10,7 @@ import Login from "./user/login"
 import UserHome from "./user/userHome"
 import AdminRegister from "./admin/adminRegister"
 import Adminlogin from "./admin/adminlogin"
+import Adminhome from "./admin/adminhome"
 
 function App() {
  
@@ -26,6 +27,8 @@ function App() {
       <Route path='/userhome/*' element={<UserHome/>}></Route>
       <Route path='/adminRegister' element={<AdminRegister/>}></Route>
       <Route path='/adminLogin' element={<Adminlogin/>}></Route>
+      <Route path='/adminhome/*' element={<Adminhome/>}></Route>
+
     </Routes>
      
     </>

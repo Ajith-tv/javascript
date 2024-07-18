@@ -1,5 +1,15 @@
 const express = require('express');
 const router = express.Router()
+const multer =require('multer')
+const storage =multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,"uploads/")
+    },
+    filename:function(rerq,file,cb){
+        cb(null,file.originalname)
+    }
+})
+const uplod =multer({storage:storage})
 const usermodel=require('../models/userModel')
 const bcrypt=require('bcrypt')
 const salt =1
@@ -75,7 +85,9 @@ router.post('/login',async(req,res,next)=>{
 })
     
    
-router
+router.post('/uplodimage',uplod.single('image'),(req,res,next)=>{
+   res.json("upload successful")
+})
 
 
 

@@ -5,6 +5,7 @@ import { Route,Routes } from 'react-router-dom'
 import Todolist from '../todolist/todolist'
 import Addtask from '../todolist/addtask'
 import Edittask from '../todolist/edittask'
+import Profileuplode from './profileuplode';
 
 const UserHome = () => {
    const user=jwtDecode(localStorage.getItem('token'))
@@ -18,6 +19,8 @@ const UserHome = () => {
         <Route path="/todolist" element={<Todolist/>}></Route>
         <Route path='/addtask' element={<Addtask/>}></Route>
         <Route path='/edit/:id' element={<Edittask/>}></Route>
+        <Route path='/upload' element={<Profileuplode/>}></Route>
+
     </Routes>
   </>
   )

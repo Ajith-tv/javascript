@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import { adminLogin } from '../redux/adminslice'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 export default function Adminlogin() {
+  const nav =useNavigate()
     const dispatch=useDispatch()
     const adminstatus=useSelector(state=>state.admincounter.adminLogin)
     const [admin,setAdmin]=useState({})
@@ -10,7 +12,10 @@ export default function Adminlogin() {
     }
 
     const handleSubmit=(e)=>{
-         dispatch(adminLogin(admin))
+        if( dispatch(adminLogin(admin))){
+          nav('/adminhome')
+
+        }
     }
   return (
     <div>
